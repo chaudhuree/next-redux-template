@@ -2,14 +2,6 @@ import baseApi from "./baseApi";
 
 const userApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
-        loginUser: builder.mutation({
-            query: (data) => ({
-                url: "/auth/login",
-                method: "POST",
-                body: data
-            }),
-            invalidatesTags: ["logIn"]
-        }),
         getUsers: builder.query({
             query: ({ page = 1, name = '' }) => ({
                 url: `/users?page=${page}&name=${name}`,
